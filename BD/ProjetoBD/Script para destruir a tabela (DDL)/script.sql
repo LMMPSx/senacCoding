@@ -1,0 +1,21 @@
+DROP TABLE IF EXISTS LivroPalavraChave;
+DROP TABLE IF EXISTS LivroAreaConhecimento;
+DROP TABLE IF EXISTS LivroAutor;
+DROP TABLE IF EXISTS ItemPedido;
+
+DROP TABLE IF EXISTS Exemplar;
+DROP TABLE IF EXISTS PedidoVenda;
+DROP TABLE IF EXISTS Endereco;
+DROP TABLE IF EXISTS PalavraChave;
+DROP TABLE IF EXISTS AreaConhecimento;
+DROP TABLE IF EXISTS Funcionario;
+DROP TABLE IF EXISTS Departamento;
+DROP TABLE IF EXISTS Autor;
+DROP TABLE IF EXISTS Cliente;
+DROP TABLE IF EXISTS Livro;
+
+DROP VIEW IF EXISTS View_Livros_Autores;
+DROP VIEW IF EXISTS View_Livros_AreaConhecimento;
+DROP VIEW IF EXISTS View_Livros_PalavrasChave;
+DROP VIEW IF EXISTS View_Exemplares_Livro;
+DROP VIEW IF EXISTS View_Pedidos_Cliente;
