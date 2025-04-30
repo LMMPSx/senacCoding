@@ -158,29 +158,6 @@ ADD Observacoes TEXT;
 ALTER TABLE Departamento
 CHANGE Responsavel Gerente VARCHAR(255);
 
--- Script para destruir a tabela (DDL)
-DROP TABLE IF EXISTS LivroPalavraChave;
-DROP TABLE IF EXISTS LivroAreaConhecimento;
-DROP TABLE IF EXISTS LivroAutor;
-DROP TABLE IF EXISTS ItemPedido;
-
-DROP TABLE IF EXISTS Exemplar;
-DROP TABLE IF EXISTS PedidoVenda;
-DROP TABLE IF EXISTS Endereco;
-DROP TABLE IF EXISTS PalavraChave;
-DROP TABLE IF EXISTS AreaConhecimento;
-DROP TABLE IF EXISTS Funcionario;
-DROP TABLE IF EXISTS Departamento;
-DROP TABLE IF EXISTS Autor;
-DROP TABLE IF EXISTS Cliente;
-DROP TABLE IF EXISTS Livro;
-
-DROP VIEW IF EXISTS View_Livros_Autores;
-DROP VIEW IF EXISTS View_Livros_AreaConhecimento;
-DROP VIEW IF EXISTS View_Livros_PalavrasChave;
-DROP VIEW IF EXISTS View_Exemplares_Livro;
-DROP VIEW IF EXISTS View_Pedidos_Cliente;
-
 -- Script de inserção (DML)
 INSERT INTO Departamento (ID_Departamento, Nome, Gerente, Descricao, Telefone) VALUES
 (1, 'Editorial', 'Ana Costa', 'Responsável pela edição dos livros', '(11) 99999-1111'),
@@ -402,35 +379,35 @@ UPDATE Exemplar
 SET Observacoes = 'Veio com falha na impressão'
 WHERE NumeroSerie = 'EX001';
 
+DELETE FROM LivroAutor 
+WHERE ISBN = '978-3-16-148410-0';
+
+DELETE FROM LivroPalavraChave 
+WHERE ISBN = '978-3-16-148410-0';
+
+DELETE FROM LivroAreaConhecimento 
+WHERE ISBN = '978-3-16-148410-0';
+
+DELETE FROM ItemPedido 
+WHERE ISBN_Livro = '978-3-16-148410-0';
+
+DELETE FROM Exemplar 
+WHERE ISBN = '978-3-16-148410-0';
+
 DELETE FROM Livro
 WHERE ISBN = '978-3-16-148410-0';
 
-DELETE FROM Autor
+DELETE FROM LivroAutor
 WHERE ID_Autor = 1;
 
-DELETE FROM PedidoVenda
+DELETE FROM Autor 
+WHERE ID_Autor = 1;
+
+DELETE FROM ItemPedido 
 WHERE ID_Pedido = 5;
 
-DELETE FROM ItemPedido
-WHERE ID_Pedido = 2 AND ISBN_Livro = '978-0-06-112008-4';
-
-DELETE FROM Cliente
-WHERE CPF = '123.456.789-00';
-
-DELETE FROM Exemplar
-WHERE NumeroSerie = 'EX12345';
-
-DELETE FROM Endereco
-WHERE ID_Endereco = 3;
-
-DELETE FROM PedidoVenda
-WHERE ID_Pedido = 8;
-
-DELETE FROM LivroAutor
-WHERE ISBN = '978-0-14-243724-7' AND ID_Autor = 6;
-
-DELETE FROM LivroPalavraChave
-WHERE ISBN = '978-0-452-28423-4' AND ID_PalavraChave = 7;
+DELETE FROM PedidoVenda 
+WHERE ID_Pedido = 5;
 
 -- Scripts de consulta (DQL)
 
@@ -582,3 +559,26 @@ CREATE VIEW View_Exemplares_Observacoes AS
 SELECT E.NumeroSerie, E.Estado, E.LocalizacaoFisica, E.DataAquisicao, E.Observacoes
 FROM Exemplar E
 WHERE E.Observacoes IS NOT NULL;
+
+-- Script para destruir a tabela (DDL)
+DROP TABLE IF EXISTS LivroPalavraChave;
+DROP TABLE IF EXISTS LivroAreaConhecimento;
+DROP TABLE IF EXISTS LivroAutor;
+DROP TABLE IF EXISTS ItemPedido;
+
+DROP TABLE IF EXISTS Exemplar;
+DROP TABLE IF EXISTS PedidoVenda;
+DROP TABLE IF EXISTS Endereco;
+DROP TABLE IF EXISTS PalavraChave;
+DROP TABLE IF EXISTS AreaConhecimento;
+DROP TABLE IF EXISTS Funcionario;
+DROP TABLE IF EXISTS Departamento;
+DROP TABLE IF EXISTS Autor;
+DROP TABLE IF EXISTS Cliente;
+DROP TABLE IF EXISTS Livro;
+
+DROP VIEW IF EXISTS View_Livros_Autores;
+DROP VIEW IF EXISTS View_Livros_AreaConhecimento;
+DROP VIEW IF EXISTS View_Livros_PalavrasChave;
+DROP VIEW IF EXISTS View_Exemplares_Livro;
+DROP VIEW IF EXISTS View_Pedidos_Cliente;

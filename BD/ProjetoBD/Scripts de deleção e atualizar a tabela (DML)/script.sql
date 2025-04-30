@@ -38,32 +38,32 @@ UPDATE Exemplar
 SET Observacoes = 'Veio com falha na impressão'
 WHERE NumeroSerie = 'EX001';
 
+DELETE FROM LivroAutor 
+WHERE ISBN = '978-3-16-148410-0';
+
+DELETE FROM LivroPalavraChave 
+WHERE ISBN = '978-3-16-148410-0';
+
+DELETE FROM LivroAreaConhecimento 
+WHERE ISBN = '978-3-16-148410-0';
+
+DELETE FROM ItemPedido 
+WHERE ISBN_Livro = '978-3-16-148410-0';
+
+DELETE FROM Exemplar 
+WHERE ISBN = '978-3-16-148410-0';
+
 DELETE FROM Livro
 WHERE ISBN = '978-3-16-148410-0';
 
-DELETE FROM Autor
+DELETE FROM LivroAutor
 WHERE ID_Autor = 1;
 
-DELETE FROM PedidoVenda
+DELETE FROM Autor 
+WHERE ID_Autor = 1;
+
+DELETE FROM ItemPedido 
 WHERE ID_Pedido = 5;
 
-DELETE FROM ItemPedido
-WHERE ID_Pedido = 2 AND ISBN_Livro = '978-0-06-112008-4';
-
-DELETE FROM Cliente
-WHERE CPF = '123.456.789-00';
-
-DELETE FROM Exemplar
-WHERE NumeroSerie = 'EX12345';
-
-DELETE FROM Endereco
-WHERE ID_Endereco = 3;
-
-DELETE FROM PedidoVenda
-WHERE ID_Pedido = 8;
-
-DELETE FROM LivroAutor
-WHERE ISBN = '978-0-14-243724-7' AND ID_Autor = 6;
-
-DELETE FROM LivroPalavraChave
-WHERE ISBN = '978-0-452-28423-4' AND ID_PalavraChave = 7;
+DELETE FROM PedidoVenda 
+WHERE ID_Pedido = 5;
