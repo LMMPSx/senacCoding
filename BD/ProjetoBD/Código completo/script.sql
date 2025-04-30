@@ -489,7 +489,7 @@ JOIN ItemPedido IP ON PV.ID_Pedido = IP.ID_Pedido
 JOIN Livro L ON IP.ISBN_Livro = L.ISBN
 JOIN LivroAreaConhecimento LAC ON L.ISBN = LAC.ISBN
 JOIN AreaConhecimento AC ON LAC.ID_Area = AC.ID_Area
-WHERE AC.Descricao = 'Tecnologia';  -- Substitua pela categoria desejada
+WHERE AC.Descricao = 'Tecnologia';
 
 SELECT L.Titulo, L.NumPaginas
 FROM Livro L
